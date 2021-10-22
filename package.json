@@ -1,0 +1,39 @@
+{
+  "name": "burroughs-app",
+  "description": "Fullstack app demoing the Burroughs Test for PBS",
+  "author": "Will Chadwick",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WillCDev/BurroughsApp.git"
+  },
+  "engines": {
+    "node": "^14.17.0",
+    "npm": "^6.0.0"
+  },
+  "scripts": {
+    "start": "npm run server:build && npm run serve",
+    "serve": "node server/dist/index.js",
+    "server:build": "rm -rf ./server/dist/ && tsc --project server/tsconfig.json",
+    "server:dev": "npm run server:build && nodemon --watch server -e ts --exec npm run start",
+    "server:lint": "eslint './server/**/*.{ts,js}' --quiet && prettier --check 'server/**/*.{ts,js}'",
+    "server:type-check": "tsc --noEmit --skipLibCheck",
+    "server:test": "npm run server:lint && npm run server:type-check",
+    "test": "npm run server:test"
+  },
+  "dependencies": {
+    "fastify": "3.22.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.17.0",
+    "@typescript-eslint/eslint-plugin": "5.1.0",
+    "@typescript-eslint/parser": "5.1.0",
+    "eslint": "8.0.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-config-prettier": "8.3.0",
+    "nodemon": "2.0.14",
+    "prettier": "2.4.1",
+    "typescript": "4.4.4"
+  }
+}
