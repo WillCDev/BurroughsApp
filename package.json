@@ -23,6 +23,8 @@
     "test": "npm run server:test"
   },
   "dependencies": {
+    "date-fns": "2.25.0",
+    "date-fns-tz": "1.1.6",
     "fastify": "3.22.1"
   },
   "devDependencies": {

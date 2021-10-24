@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import routes from './routes'
+import payrollRoutes from './routes/payroll'
 
 export const server = fastify({
   logger: {
@@ -18,7 +18,7 @@ export const server = fastify({
   ignoreTrailingSlash: true,
 })
 
-server.register(routes)
+server.register(payrollRoutes, { prefix: '/payroll' })
 
 server.listen(8080, (err, address) => {
   if (err) {
