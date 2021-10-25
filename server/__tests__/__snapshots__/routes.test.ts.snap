@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Server Routing /payroll should return a 12 month payroll in CSV format if Content-Type is text/csv 1`] = `
+"Month/Year,Bonus,Salary
+Oct 2008,-,Friday 31st
+Nov 2008,Wednesday 19th,Friday 28th
+Dec 2008,Monday 15th,Wednesday 31st
+Jan 2009,Thursday 15th,Friday 30th
+Feb 2009,Wednesday 18th,Friday 27th
+Mar 2009,Wednesday 18th,Tuesday 31st
+Apr 2009,Wednesday 15th,Thursday 30th
+May 2009,Friday 15th,Friday 29th
+Jun 2009,Monday 15th,Tuesday 30th
+Jul 2009,Wednesday 15th,Friday 31st
+Aug 2009,Wednesday 19th,Monday 31st
+Sep 2009,Tuesday 15th,Wednesday 30th
+Oct 2009,Thursday 15th,-"
+`;

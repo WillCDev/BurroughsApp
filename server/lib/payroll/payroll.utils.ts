@@ -1,6 +1,6 @@
 import {
   addDays,
-  endOfMonth,
+  lastDayOfMonth,
   getDate,
   isWeekend,
   nextWednesday,
@@ -14,6 +14,6 @@ export function getBonusDateForThisMonth(refDate: Date): Date {
 }
 
 export function getSalaryDateForThisMonth(refDate: Date): Date {
-  const salaryDate = endOfMonth(refDate)
+  const salaryDate = lastDayOfMonth(refDate)
   return isWeekend(salaryDate) ? previousFriday(salaryDate) : salaryDate
 }
