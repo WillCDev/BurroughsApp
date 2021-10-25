@@ -6,7 +6,6 @@ import {
   subDays,
   startOfDay,
 } from 'date-fns'
-import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
 import { PaymentsByMonth, PaymentsMap, PaymentType } from './payroll.types'
 import config from './payroll.config'
 import {
@@ -15,7 +14,7 @@ import {
 } from './payroll.utils'
 
 export function getPayrollDates(): PaymentsByMonth {
-  const start: Date = utcToZonedTime(Date.now(), config.timeZone)
+  const start: number = Date.now()
 
   const adjustedStart: Date = startOfDay(subDays(start, 4)) // See *
 
@@ -29,12 +28,12 @@ export function getPayrollDates(): PaymentsByMonth {
 
     const bonusDate = getBonusDateForThisMonth(refDate)
     if (isWithinInterval(bonusDate, { start, end })) {
-      dates[PaymentType.Bonus] = zonedTimeToUtc(bonusDate, config.timeZone)
+      dates[PaymentType.Bonus] = bonusDate
     }
 
     const salaryDate = getSalaryDateForThisMonth(refDate)
     if (isWithinInterval(salaryDate, { start, end })) {
-      dates[PaymentType.Salary] = zonedTimeToUtc(salaryDate, config.timeZone)
+      dates[PaymentType.Salary] = salaryDate
     }
 
     if (dates[PaymentType.Salary] || dates[PaymentType.Bonus]) {
@@ -59,9 +58,12 @@ export function getPayrollDates(): PaymentsByMonth {
 // check, however given the very small size of recursion, the trade off is cleaner
 // more readable code IMO.
 
+// *** We also don't account for TZs right now, so are at the mercy of the TZof the runtime env
+// this would be another iteration of work, but for now is not a requirement
+
 function getDateText(date?: Date): string {
   if (!date) return '-'
-  return format(utcToZonedTime(date, config.timeZone), config.csvDateFormat)
+  return format(date, config.csvDateFormat)
 }
 
 export function buildPayrollCSV(payments: PaymentsByMonth): string {
