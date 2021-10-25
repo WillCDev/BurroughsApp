@@ -1,7 +1,6 @@
-import fastify from 'fastify'
-import payrollRoutes from './routes/payroll'
+import buildApp from './app'
 
-export const server = fastify({
+const server = buildApp({
   logger: {
     level: 'info',
     serializers: {
@@ -17,8 +16,6 @@ export const server = fastify({
   },
   ignoreTrailingSlash: true,
 })
-
-server.register(payrollRoutes, { prefix: '/payroll' })
 
 server.listen(8080, (err, address) => {
   if (err) {
