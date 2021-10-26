@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.common.json",
+  "include": ["./src"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    /* noEmit - Webpack build (emits) files, not tsc. */
+    "noEmit": true,
+    /* Additional Options */
+    "skipLibCheck": true
+  }
+}

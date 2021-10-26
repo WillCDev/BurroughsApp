@@ -4,12 +4,14 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "plugins": ["@typescript-eslint", "prettier","jest"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": ["dist", "coverage"],
   "rules": {
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"],
     "prettier/prettier": "error",
     "no-nested-ternary": "error",
     "import/no-extraneous-dependencies": 0,
@@ -17,7 +19,7 @@
       "warn",
       {
         "allowExpressions": true,
-        "allowTypedFunctionExpressions": true,
+        "allowTypedFunctionExpressions": true
       }
     ]
   }
