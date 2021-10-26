@@ -1,0 +1,4 @@
+{
+  "extends": "../.prettierrc",
+  "jsxSingleQuote": false
+}

@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["@typescript-eslint", "prettier", "react", "react-hooks", "jest"],
+  "extends": [
+    "../eslintrc",
+    "airbnb",
+    "plugin:prettier/react",
+    "plugin:react/recommended"
+  ],
+}
