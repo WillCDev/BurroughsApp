@@ -11,6 +11,12 @@ const config = merge(commonConfig, {
     client: {
       overlay: { errors: true, warnings: false },
     },
+    proxy: {
+      '/**': {
+        changeOrigin: true,
+        target: 'http://localhost:8080',
+      },
+    },
   },
 })
 

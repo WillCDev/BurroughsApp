@@ -1,7 +1,7 @@
 import { FC, ButtonHTMLAttributes } from 'react'
 import { useHistory } from 'react-router-dom'
 import styles from './Button.less'
-import joinClassNames from 'utils/joinClassNames'
+import joinClassNames from 'core/utils/joinClassNames'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string
