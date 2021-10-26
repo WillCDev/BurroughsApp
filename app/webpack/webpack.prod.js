@@ -11,9 +11,7 @@ const config = merge(commonConfig, {
     sideEffects: true,
     minimizer: [new CssMinimizerPlugin()],
   },
-  plugins: [
-    new webpack.optimize.AggressiveMergingPlugin(),
-  ]
+  plugins: [new webpack.optimize.AggressiveMergingPlugin()],
 })
 
 module.exports = config

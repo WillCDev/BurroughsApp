@@ -1,6 +1,8 @@
 {
   "extends": "stylelint-config-standard",
+  "ignoreFiles": ["**/dist/**", "**/coverage/**"],
   "rules": {
+    "string-quotes": "single",
     "value-keyword-case": null,
     "selector-pseudo-class-no-unknown": [
       true,

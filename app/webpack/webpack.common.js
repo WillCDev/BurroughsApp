@@ -39,7 +39,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-              modules: { localIdentName: '[name]__[local]__[hash:base64:5]' }
+              modules: { localIdentName: '[name]__[local]__[hash:base64:5]' },
             },
           },
           {
@@ -50,7 +50,7 @@ module.exports = {
           },
           { loader: 'less-loader' },
         ],
-      }
+      },
     ],
   },
   resolve: {
@@ -99,5 +99,5 @@ module.exports = {
       },
     },
   },
-  stats: 'minimal'
+  stats: 'minimal',
 }

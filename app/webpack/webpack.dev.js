@@ -9,8 +9,8 @@ const config = merge(commonConfig, {
     port: 9003,
     historyApiFallback: true,
     client: {
-      overlay: { errors: true, warnings: false }
-    }
+      overlay: { errors: true, warnings: false },
+    },
   },
 })
 

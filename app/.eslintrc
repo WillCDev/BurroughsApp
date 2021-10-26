@@ -15,11 +15,5 @@
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint", "prettier", "react", "react-hooks", "jest"],
-  "extends": [
-    "../eslintrc",
-    "airbnb",
-    "plugin:prettier/react",
-    "plugin:react/recommended"
-  ],
+  "plugins": ["react","react-hooks","jsx-a11y"]
 }
