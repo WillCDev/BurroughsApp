@@ -74,9 +74,6 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       meta: { robots: 'noindex' },
-      templateParameters: {
-        faviconPath: `assets/images/favicon.png`,
-      },
       template: fromCWD(`./app/src/index.html`),
     }),
   ],

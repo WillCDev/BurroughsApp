@@ -1,7 +1,12 @@
 {
   "extends": "stylelint-config-standard",
   "ignoreFiles": ["**/dist/**", "**/coverage/**"],
+  "plugins": [
+    "stylelint-less"
+  ],
   "rules": {
+    "at-rule-no-unknown": null,
+    "at-rule-empty-line-before": null,
     "string-quotes": "single",
     "value-keyword-case": null,
     "selector-pseudo-class-no-unknown": [
