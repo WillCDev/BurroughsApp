@@ -21,11 +21,16 @@
     "server:type-check": "tsc --project ./server/tsconfig.json --noEmit --skipLibCheck",
     "server:test": "npm run server:lint && npm run server:type-check && jest --config ./jest/server.config.js",
     "server:test:dev": "npm run server:lint && npm run server:type-check && jest --config ./jest/server.config.js --watchAll",
+
     "app:build": "rm -rf ./app/dist/ && webpack --config ./app/webpack/webpack.prod.js --progress --color",
     "app:build:dev": "rm -rf ./app/dist/ && webpack --config ./app/webpack/webpack.dev.js --progress --color",
     "app:dev": "webpack serve --config ./app/webpack/webpack.dev.js --progress --color",
     "app:lint": "eslint './app/**/*.{ts,js}' --quiet && prettier --check 'app/**/*.{ts,js}' && stylelint './app/**/*.{css,less}'",
-    "test": "npm run server:test"
+    "app:type-check": "tsc --project ./app/tsconfig.json --noEmit --skipLibCheck",
+    "app:test": "npm run app:lint && npm run app:type-check",
+  
+    "test": "npm run server:test && npm run app:test",
+    "dev": "concurrently \"npm run server:dev\" \"npm run app:dev\""
   },
   "dependencies": {
     "@types/howler": "2.2.4",
@@ -53,6 +58,7 @@
     "babel-loader": "8.2.3",
     "babel-plugin-jsx-remove-data-test-id": "3.0.0",
     "case-sensitive-paths-webpack-plugin": "2.4.0",
+    "concurrently": "6.3.0",
     "copy-webpack-plugin": "9.0.1",
     "css-loader": "6.5.0",
     "css-minimizer-webpack-plugin": "3.1.1",
