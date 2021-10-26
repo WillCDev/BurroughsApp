@@ -21,14 +21,12 @@
     "server:type-check": "tsc --project ./server/tsconfig.json --noEmit --skipLibCheck",
     "server:test": "npm run server:lint && npm run server:type-check && jest --config ./jest/server.config.js",
     "server:test:dev": "npm run server:lint && npm run server:type-check && jest --config ./jest/server.config.js --watchAll",
-
     "app:build": "rm -rf ./app/dist/ && webpack --config ./app/webpack/webpack.prod.js --progress --color",
     "app:build:dev": "rm -rf ./app/dist/ && webpack --config ./app/webpack/webpack.dev.js --progress --color",
     "app:dev": "webpack serve --config ./app/webpack/webpack.dev.js --progress --color",
     "app:lint": "eslint './app/**/*.{ts,js}' --quiet && prettier --check 'app/**/*.{ts,js}' && stylelint './app/**/*.{css,less}'",
     "app:type-check": "tsc --project ./app/tsconfig.json --noEmit --skipLibCheck",
     "app:test": "npm run app:lint && npm run app:type-check",
-  
     "test": "npm run server:test && npm run app:test",
     "dev": "concurrently \"npm run server:dev\" \"npm run app:dev\""
   },
