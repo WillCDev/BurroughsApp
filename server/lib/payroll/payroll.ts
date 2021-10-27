@@ -65,7 +65,7 @@ export function getPayrollDates(): PaymentsByMonth {
 export function buildPayrollCSV(payments: PaymentsByMonth): string {
   return Object.entries(payments).reduce(
     (content, [key, { bonus, salary }]) => {
-      return `${content}\n${key},${bonus},${salary}`
+      return `${content}\n${key},${bonus || '-'},${salary || '-'}`
     },
     'Month/Year,Bonus,Salary'
   )
