@@ -26,7 +26,8 @@
     "app:dev": "webpack serve --config ./app/webpack/webpack.dev.js --progress --color",
     "app:lint": "eslint './app/**/*.{ts,js}' --quiet && prettier --check 'app/**/*.{ts,js}' && stylelint './app/**/*.{css,less}'",
     "app:type-check": "tsc --project ./app/tsconfig.json --noEmit --skipLibCheck",
-    "app:test": "npm run app:lint && npm run app:type-check",
+    "app:test": "npm run app:lint && npm run app:type-check && jest --config ./jest/app.config.js",
+    "app:test:dev": "npm run app:lint && npm run app:type-check && jest --config ./jest/app.config.js --watchAll",
     "test": "npm run server:test && npm run app:test",
     "dev": "concurrently \"npm run server:dev\" \"npm run app:dev\""
   },
