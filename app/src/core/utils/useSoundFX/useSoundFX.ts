@@ -13,13 +13,14 @@ const soundFiles = {
 }
 
 const useSoundFX = (sound: Sounds): HowlInstance => {
-  const dialup = useRef<HowlInstance>(
+  const fx = useRef<HowlInstance>(
     new Howl({
       src: [`/assets/audio/${soundFiles[sound]}`],
     })
   )
+  fx.current.volume(0.2)
 
-  return dialup.current
+  return fx.current
 }
 
 export default useSoundFX
