@@ -8,6 +8,5 @@
     "noEmit": true,
     /* Additional Options */
     "skipLibCheck": true,
-    "types": ["dom"]
   }
 }
