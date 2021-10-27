@@ -15,7 +15,5 @@ module.exports = {
     '.+\\.(j|t)sx?$': 'ts-jest',
   },
   collectCoverage: true,
-
-  moduleFileExtensions: ['ts', 'js', 'json'],
-  testEnvironment: 'node',
+  moduleFileExtensions: ['ts', 'js', 'json', 'tsx'],
 }
