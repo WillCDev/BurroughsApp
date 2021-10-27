@@ -7,6 +7,12 @@ import styles from './PayrollTable.less'
 const PayrollTable: FC = () => {
   const [payroll, setPayroll] = useState<PayrollJson>()
   const printer = useSoundFX(Sounds.Printer)
+  let timer: number
+
+  const stopPrinter = (): void => {
+    printer.stop()
+    clearTimeout(timer)
+  }
 
   useEffect(() => {
     printer.play()
@@ -15,11 +21,10 @@ const PayrollTable: FC = () => {
       .then(setPayroll)
       .then(() => {
         // TODO: Sync up the length of the animation and the soundFX
-        const timer = setTimeout(() => {
-          printer.stop()
-          clearTimeout(timer)
-        }, 9000)
+        timer = window.setTimeout(stopPrinter, 9000)
       })
+
+    return stopPrinter
   }, [])
 
   if (!payroll) return <>Fetching Payroll Info....be patient!!</>
@@ -30,8 +35,8 @@ const PayrollTable: FC = () => {
         <thead>
           <tr>
             <th>Month / Year</th>
-            <th>Salary Payment</th>
             <th>Bonus Payment</th>
+            <th>Salary Payment</th>
           </tr>
         </thead>
         <tbody>
@@ -39,8 +44,8 @@ const PayrollTable: FC = () => {
             return (
               <tr key={date}>
                 <td>{date}</td>
-                <td>{salary || '-'}</td>
                 <td>{bonus || '-'}</td>
+                <td>{salary || '-'}</td>
               </tr>
             )
           })}

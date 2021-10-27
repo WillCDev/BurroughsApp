@@ -7,6 +7,6 @@
     /* noEmit - Webpack build (emits) files, not tsc. */
     "noEmit": true,
     /* Additional Options */
-    "skipLibCheck": true
+    "skipLibCheck": true,
   }
 }
