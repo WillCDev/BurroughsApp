@@ -12,14 +12,12 @@ Create an API to help a small fictional company calculate the dates on which the
 - On the 15th of each month, bonuses are paid for the previous month, unless that day is a weekend, in which case they are paid on the first Wednesday after the 15th.
 ```
 
-<br/>
 
 ## Prerequisites
 ```text
 node ^14.17.0
 npm ^6.0.0
 ```
-<br/>
 
 ## Installation
 ```bash
@@ -28,7 +26,6 @@ cd ./BurroughsApp
 npm i
 ```
       
-<br/>
 
 ## Run App Locally
 To run the Sever and Webapp concurrently locally
@@ -40,15 +37,12 @@ App will be available on http://localhost:9003
 
 **NOTE: Both will be running in watch mode and will automatically reload when files are changed to enable continuous development.**
 
-<br/>
 
 ## Run All Tests
 To run all tests, for both the server and webapp
 ```bash
 npm run test
 ```
-
-<br/>
 
 
 ## Server specific commands
@@ -70,7 +64,6 @@ npm run test
 `npm run app:test` - run linting, typechecks, and all automated tests against the app code   
 `npm run app:test:dev` - run automated jest tests in `watch mode` to develop app tests locally
 
-<br/>
 
 ## CI / CD
 CI Pipeline is provided using Github Workflows   
@@ -79,7 +72,6 @@ CI Pipeline is provided using Github Workflows
 
 [app-ci](.github/workflows/server-ci.yml ) - Run when a new PR contains changes to the `./app/**` directory, and will run all linting, type-checks and automated tests against the app before allowing the PR to be merged
 
-<br/>
 
 ## Still left to do
 This is only a first pass, so there is still plenty of room for improvement.
