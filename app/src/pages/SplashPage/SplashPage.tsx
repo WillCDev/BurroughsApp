@@ -12,7 +12,11 @@ const SplashPage: FC = () => {
       </header>
 
       <section>
-        <Button text="Run Payroll" style={{ width: '40%' }} href="/payroll" />
+        <Button
+          text="Payroll Viewer"
+          style={{ width: '40%' }}
+          href="/payroll"
+        />
         <DownloadPayrollButton />
       </section>
     </div>
