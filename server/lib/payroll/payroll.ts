@@ -10,6 +10,7 @@ import { PaymentsByMonth, PaymentsMap, PaymentType } from './payroll.types'
 import config from './payroll.config'
 import {
   getBonusDateForThisMonth,
+  getDateText,
   getSalaryDateForThisMonth,
 } from './payroll.utils'
 
@@ -28,12 +29,12 @@ export function getPayrollDates(): PaymentsByMonth {
 
     const bonusDate = getBonusDateForThisMonth(refDate)
     if (isWithinInterval(bonusDate, { start, end })) {
-      dates[PaymentType.Bonus] = bonusDate
+      dates[PaymentType.Bonus] = getDateText(bonusDate)
     }
 
     const salaryDate = getSalaryDateForThisMonth(refDate)
     if (isWithinInterval(salaryDate, { start, end })) {
-      dates[PaymentType.Salary] = salaryDate
+      dates[PaymentType.Salary] = getDateText(salaryDate)
     }
 
     if (dates[PaymentType.Salary] || dates[PaymentType.Bonus]) {
@@ -61,15 +62,10 @@ export function getPayrollDates(): PaymentsByMonth {
 // *** We also don't account for TZs right now, so are at the mercy of the TZof the runtime env
 // this would be another iteration of work, but for now is not a requirement
 
-function getDateText(date?: Date): string {
-  if (!date) return '-'
-  return format(date, config.csvDateFormat)
-}
-
 export function buildPayrollCSV(payments: PaymentsByMonth): string {
   return Object.entries(payments).reduce(
     (content, [key, { bonus, salary }]) => {
-      return `${content}\n${key},${getDateText(bonus)},${getDateText(salary)}`
+      return `${content}\n${key},${bonus},${salary}`
     },
     'Month/Year,Bonus,Salary'
   )

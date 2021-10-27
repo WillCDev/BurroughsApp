@@ -10,7 +10,9 @@ export const downloadPayroll = (): Promise<void> => {
     .then((content) => fileDownload(content, 'payroll.csv', 'text/csv'))
 }
 
+export type PayrollJson = Record<string, { bonus?: string; salary?: string }>
+
 // TODO: Add error handling
-export const getPayroll = (): Promise<void> => {
+export const getPayroll = (): Promise<PayrollJson> => {
   return fetch.get('/payroll').then((response) => response.json())
 }

@@ -5,8 +5,14 @@ import {
   isWeekend,
   nextWednesday,
   previousFriday,
+  format,
 } from 'date-fns'
 import config from './payroll.config'
+
+export function getDateText(date?: Date): string {
+  if (!date) return '-'
+  return format(date, config.csvDateFormat)
+}
 
 export function getBonusDateForThisMonth(refDate: Date): Date {
   const bonusDate = addDays(refDate, config.bonusDay - getDate(refDate))
