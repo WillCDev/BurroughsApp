@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Server Routing /payroll should return a 12 month payroll in CSV format if Content-Type is text/csv 1`] = `
+exports[`Server Routing /payroll should return a 12 month payroll in CSV format if Accept header is text/csv 1`] = `
 "Month/Year,Bonus,Salary
 Oct 2008,-,Friday 31st
 Nov 2008,Wednesday 19th,Friday 28th
