@@ -31,12 +31,12 @@ describe('Server Routing', () => {
       })
     })
 
-    it('should return a 12 month payroll in CSV format if Content-Type is text/csv', async () => {
+    it('should return a 12 month payroll in CSV format if Accept header is text/csv', async () => {
       const app = buildApp()
       const response = await app.inject({
         method: 'GET',
         url: '/payroll',
-        headers: { 'content-type': 'text/csv' },
+        headers: { accept: 'text/csv' },
       })
 
       expect(response.statusCode).toBe(200)
