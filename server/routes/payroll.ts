@@ -6,7 +6,7 @@ const initializeRoutes: FastifyPluginCallback = (instance, _opts, done) => {
     const payrollDates = getPayrollDates()
     res.status(200)
 
-    if (req.headers['content-type'] === 'text/csv') {
+    if (req.headers['accept'] === 'text/csv') {
       res.type('text/csv')
       res.send(buildPayrollCSV(payrollDates))
     } else {

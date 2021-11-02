@@ -5,7 +5,7 @@ import fetch from '../base'
 // TODO: Add better naming to the csv file -> do this in the server?
 export const downloadPayroll = (): Promise<void> => {
   return fetch
-    .get('/payroll', { headers: { 'Content-Type': 'text/csv' } })
+    .get('/payroll', { headers: { Accept: 'text/csv' } })
     .then((response) => response.text())
     .then((content) => fileDownload(content, 'payroll.csv', 'text/csv'))
 }
