@@ -15,10 +15,11 @@ const PayrollTable: FC = () => {
   }
 
   useEffect(() => {
-    printer.play()
-
     getPayroll()
-      .then(setPayroll)
+      .then((payrolldata) => {
+        printer.play()
+        setPayroll(payrolldata)
+      })
       .then(() => {
         // TODO: Sync up the length of the animation and the soundFX
         timer = window.setTimeout(stopPrinter, 9000)
